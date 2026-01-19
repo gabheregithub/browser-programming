@@ -42,7 +42,7 @@ I learned about the <figcaption> Element
 ## 5. What I still need to improve
 I need to dig deeper into accessibility requirements of webpages
 
-## 6. Notes about AI usage (if any)
+## 6. Notes about AI usage
 - Tool used: Perplexity in Comet
 - What I accepted as-is: Nothing
 - What I modified manually: I only asked about the usage of the figcaption element, because it was new to me
