@@ -20,18 +20,17 @@ const btnGrade = document.getElementById("btnGrade");
 const gradeOut = document.getElementById("gradeOut");
 
 btnGrade.onclick = function () {
-  // TODO: get score as number
-  // const score = ...
+  const score = document.getElementById("scoreInput").value;
+  let grade;
 
-  // TODO: implement grading logic
-  // if (score < 0 || score > 100) ...
-  // else if (score >= 90) ...
-  // else if (score >= 80) ...
-  // else if (score >= 70) ...
-  // else if (score >= 60) ...
-  // else ...
+  if (score < 0 || score > 100) {grade = "INVALID INPUT";}
+  else if (score >= 90) {grade = 'A';}
+  else if (score >= 80) {grade = 'B';}
+  else if (score >= 70) {grade = 'C';}
+  else if (score >= 60) {grade = 'D';}
+  else {grade = 'F';}
 
-  gradeOut.innerText = "Grade: (TODO)";
+  gradeOut.innerText = `Grade: ${grade}`;
 };
 
 /* =========================
@@ -45,17 +44,23 @@ const btnEvenOdd = document.getElementById("btnEvenOdd");
 const evenOddOut = document.getElementById("evenOddOut");
 
 function isEven( n ) {
-  // TODO: return true if n is even, false otherwise
-  // return ...
+  if (n % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 btnEvenOdd.onclick = function () {
   const n = Number(numEvenOdd.value);
+  let returner;
 
-  // TODO: use isEven( n ) and show EVEN or ODD
-  // if (...) { ... } else { ... }
-
-  evenOddOut.innerText = "Result: (TODO)";
+  if (isEven(n) === true) {
+    returner = 'EVEN';
+  } else {
+    returner = 'ODD'
+  }
+  evenOddOut.innerText = `Result: ${returner}`;
 };
 
 /* =========================
@@ -70,14 +75,16 @@ const countdownOut = document.getElementById("countdownOut");
 
 btnCountdown.onclick = function () {
   const start = Number(countdownInput.value);
+  let text = ``;
+  for (let i = start; i>=0;i--) {
+    if (i === start) {
+        text = `${i}`;
+    } else {
+        text = `${text}, ${i}`;
+    }
+  }
 
-  // TODO: create text variable
-  // let text = "";
-
-  // TODO: for loop from start down to 0
-  // for (let i = start; i >= 0; i--) { ... }
-
-  countdownOut.innerText = "(TODO)";
+  countdownOut.innerText = text;
 };
 
 /* =========================
