@@ -98,21 +98,19 @@ const btnSumN = document.getElementById("btnSumN");
 const sumNOut = document.getElementById("sumNOut");
 
 function sumToN( n ) {
-  // TODO: sum numbers from 1 to n with a loop
-  // let sum = 0;
-  // for (...) { ... }
-  // return sum;
+  let sum = 0;
+  for (let i = 1; i<=n; i++) {
+    sum = sum + i;
+  }
 
-  return 0; // TODO: replace
+  return sum;
 }
 
 btnSumN.onclick = function () {
   const n = Number(nSumInput.value);
+  const result = sumToN( n );
 
-  // TODO: call sumToN( n )
-  // const result = ...
-
-  sumNOut.innerText = "Sum: (TODO)";
+  sumNOut.innerText = `Sum: ${result}`;
 };
 
 /* =========================
@@ -129,12 +127,12 @@ const repeatOut = document.getElementById("repeatOut");
 btnRepeat.onclick = function () {
   const text = repeatText.value;
   const times = Number(repeatCount.value);
+  let result = "";
+  for (i=1; i<=times;i++) {
+    result = result + text + " ";
+  }
 
-  // TODO: let result = "";
-  // TODO: loop i=1..times, add text each time
-  // TODO: show result
-
-  repeatOut.innerText = "(TODO)";
+  repeatOut.innerText = result;
 };
 
 /* =========================
@@ -154,14 +152,17 @@ const correctUser = "student";
 const correctPass = "1234";
 
 btnLogin.onclick = function () {
-  // TODO: read u and p (trim recommended)
-  // const u = ...
-  // const p = ...
+  const u = loginUser.value;
+  const p = loginPass.value;
+  let status = "";
 
-  // TODO: if correct -> Welcome + green
-  // else -> Wrong login + crimson
+  if (u===correctUser && p===correctPass) {
+    status = "Welcome ✅";
+  } else {
+    status = "Error ❌";
+  }
 
-  loginOut.innerText = "Status: (TODO)";
+  loginOut.innerText = `Status: ${status}`;
 };
 
 /* =========================
@@ -177,18 +178,19 @@ const btnMinMax = document.getElementById("btnMinMax");
 const minMaxOut = document.getElementById("minMaxOut");
 
 function min3(a, b, c) {
-  // TODO: find minimum using comparisons
-  // let m = a;
-  // if (b < m) m = b;
-  // if (c < m) m = c;
-  // return m;
+  let m = a;
+  if (b < m) m = b;
+  if (c < m) m = c;
 
-  return 0; // TODO: replace
+  return m;
 }
 
 function max3(a, b, c) {
-  // TODO: find maximum using comparisons
-  return 0; // TODO: replace
+  let m = a;
+  if (b > m) m = b;
+  if (c > m) m = c;
+
+  return m;
 }
 
 btnMinMax.onclick = function () {
@@ -196,11 +198,10 @@ btnMinMax.onclick = function () {
   const b = Number(yInput.value);
   const c = Number(zInput.value);
 
-  // TODO: compute mn and mx using min3/max3
-  // const mn = ...
-  // const mx = ...
+  const mn = min3(a,b,c);
+  const mx = max3(a,b,c);
 
-  minMaxOut.innerText = "Min: (TODO) | Max: (TODO)";
+  minMaxOut.innerText = `Min: ${mn} | Max: ${mx}`;
 };
 
 /* =========================
@@ -215,16 +216,17 @@ const btnTable = document.getElementById("btnTable");
 const tableOut = document.getElementById("tableOut");
 
 function makeTable( n ) {
-  // TODO: build lines with for loop
-  // Example output:
-  // "7 × 1 = 7 | 7 × 2 = 14 | ..."
+  let result = ""
+  for (i=1;i<=10;i++) {
+    result = result + `${n} × ${i} = ${n*i} | `;
+  }
 
-  return "(TODO)";
+  return result;
 }
 
 btnTable.onclick = function () {
   const n = Number(tableN.value);
+  const result = makeTable( n );
 
-  // TODO: call makeTable( n ) and show it
-  tableOut.innerText = "(TODO)";
+  tableOut.innerText = `${result}`;
 };
