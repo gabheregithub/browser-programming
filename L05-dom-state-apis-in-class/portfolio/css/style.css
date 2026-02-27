@@ -5,6 +5,11 @@ body {
     margin: 0 auto;
 }
 
+body.dark {
+    background-color: #1c1c1c;
+    color: white;
+}
+
 header {
     background-color: blueviolet;
     padding: 5%;
@@ -63,3 +68,61 @@ nav a {
 }
 
 
+#skills {
+    margin: 2rem 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.skill-card {
+    background: var(--card-bg, white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid var(--border-color, #e0e0e0);
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+}
+
+.skill-card p {
+    margin: 0;
+    color: var(--text-secondary, #666);
+}
+
+/* Dark mode support (add to your existing dark class) */
+body.dark .skill-card {
+    background: var(--card-bg-dark, #2a2a2a);
+    border-color: var(--border-dark, #444);
+    color: white;
+}
+
+body.dark .skill-card p {
+    color: var(--text-secondary-dark, #ccc);
+}
+
+#last-updated {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
+body.dark #last-updated {
+    color: #aaa;
+}
