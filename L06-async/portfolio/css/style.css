@@ -1,183 +1,320 @@
+/* Color theme */
+:root {
+    /* light mode */
+    --bg: #ffffff;
+    --bg-alt: #f3f4f6;
+    --text: #111827;
+    --accent: #6366f1;
+    --accent-soft: #4f46e5;
+    --accent-light: #4338ca;
+    --muted: #6b7280;
+
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --code-bg: #111827;
+}
+
+/* Dark mode overrides (toggled by body.dark) */
+body.dark {
+    --bg: #0f172a;
+    --bg-alt: #111827;
+    --text: #e5e7eb;
+    --accent: #6366f1;
+    --accent-soft: #4f46e5;
+    --accent-light: #a5b4fc;
+    --muted: #9ca3af;
+
+    --card-bg: #111827;
+    --card-border: #1f2937;
+    --code-bg: #020617;
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Base layout */
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    line-height: normal;
-    max-width: 100%;
+    line-height: 1.5;
+    max-width: 960px;
     margin: 0 auto;
+    padding: 0 1rem;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
-body.dark {
-    background-color: #1c1c1c;
-    color: white;
+/* Base button style (theme toggle + API button, etc.) */
+button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 999px;
+    padding: 0.55rem 1.4rem;
+    cursor: pointer;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.2s;
 }
 
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state (used by Load Data) */
+button:disabled {
+    background: #9ca3af;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Optional: theme toggle position */
+#themeToggle {
+    position: absolute;
+    top: 0.75rem;
+    right: 1.5rem;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+}
+
+/* Header / hero */
 header {
-    background-color: blueviolet;
-    padding: 5%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    padding: 3rem 5%;
+    color: white;
+    position: relative;
 }
 
+header h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem;
+}
+
+header p {
+    margin: 0;
+    color: #e0e7ff;
+}
+
+/* Footer */
 footer {
-    background-color: green;
-    padding: 5%;
+    background-color: var(--bg-alt);
+    padding: 2rem 5%;
+    color: var(--muted);
 }
 
+footer a {
+    color: var(--accent);
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+/* Sections */
 section {
-    margin-top: 50px;
-}
-
-
-h1 {
-    font-size: x-large;
-}
-
-h2 {
-    font-size: large;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-a:hover {
-    color: aquamarine;
+    margin: 3rem 0;
 }
 
 #main {
-    padding: 5%;
+    padding: 0 0 3rem 0;
 }
 
-#projects {
-    background-color: blue;
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-.card {
-    color: white;
+/* Headings and text */
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p, li {
+    font-size: 1rem;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-soft);
+}
+
+/* Navigation */
+nav {
+    background-color: var(--bg-alt);
+    margin-bottom: 1rem;
 }
 
 nav ul {
     display: flex;
     list-style-type: none;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+    align-items: center;
 }
 
 nav li {
-    padding-left: 10px;
+    padding: 0;
 }
 
 nav a {
     text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+    font-size: 0.95rem;
 }
 
+nav a:hover {
+    color: var(--accent);
+}
 
+/* Projects section and cards */
+#projects {
+    background-color: var(--bg-alt);
+    padding: 2rem 5%;
+    border-radius: 12px;
+}
+
+#projects ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#projects li {
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    color: var(--text);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid var(--card-border);
+}
+
+.card figure {
+    margin-top: 1rem;
+}
+
+/* Skills section */
 #skills {
-    margin: 2rem 0;
+    margin: 3rem 0;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
     list-style: none;
     padding: 0;
 }
 
 .skill-card {
-    background: var(--card-bg, white);
+    background: var(--card-bg);
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .skill-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    border-color: var(--accent);
 }
 
 .skill-card h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    color: var(--accent);
 }
 
 .skill-card p {
     margin: 0;
-    color: var(--text-secondary, #666);
+    color: var(--muted);
 }
 
-/* Dark mode support (add to your existing dark class) */
-body.dark .skill-card {
-    background: var(--card-bg-dark, #2a2a2a);
-    border-color: var(--border-dark, #444);
-    color: white;
-}
-
-body.dark .skill-card p {
-    color: var(--text-secondary-dark, #ccc);
-}
-
-#last-updated {
-    font-size: 0.85em;
-    color: #888;
-    margin-top: 1rem;
-    text-align: center;
-    font-style: italic;
-}
-
-body.dark #last-updated {
-    color: #aaa;
-}
-
+/* API demo section */
 #api-demo {
     margin: 3rem 0;
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid blueviolet;
+    padding: 2rem 5%;
+    background: var(--bg-alt);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    max-width: 700px;
 }
 
+/* Only spacing tweak here; visual style from global button */
 #api-demo button {
-    background: blueviolet;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s;
-}
-
-#api-demo button:hover {
-    background: #8a4af3;
-}
-
-#api-demo button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
+    margin-top: 0.5rem;
 }
 
 #dataOutput {
     margin-top: 1rem;
     padding: 1rem;
-    background: white;
-    border-radius: 5px;
-    border-left: 3px solid #ddd;
+    background: var(--code-bg);
+    border-radius: 8px;
+    border-left: 3px solid #4b5563;
     min-height: 100px;
     font-family: monospace;
+    color: #e5e7eb;
 }
 
-body.dark #api-demo {
-    background: #2a2a2a;
+/* Last updated text */
+#last-updated {
+    font-size: 0.85em;
+    color: var(--muted);
+    margin-top: 1rem;
+    text-align: center;
+    font-style: italic;
 }
 
-body.dark #dataOutput {
-    background: #333;
-    border-left-color: #555;
+/* Interests / lists spacing */
+#interests ol,
+#contact ol {
+    padding-left: 1.25rem;
 }
 
-body.dark #api-demo button {
-    background: #9333ea;
-}
+/* Small-screen tweaks */
+@media (max-width: 600px) {
+    header {
+        text-align: center;
+    }
 
-body.dark #api-demo button:hover {
-    background: #a855f7;
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #projects,
+    #api-demo {
+        padding: 1.5rem;
+    }
+
+    #themeToggle {
+        right: 1rem;
+        top: 0.6rem;
+    }
 }
