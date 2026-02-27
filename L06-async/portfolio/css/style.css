@@ -104,18 +104,60 @@ header p {
     color: #e0e7ff;
 }
 
-/* Footer */
 footer {
     background-color: var(--bg-alt);
-    padding: 2rem 5%;
+    padding: 1.75rem 5%;
     color: var(--muted);
+    border-top: 1px solid var(--card-border);
+}
+
+footer .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+footer .footer-links {
+    display: flex;
+    gap: 1rem;
 }
 
 footer a {
     color: var(--accent);
-    margin-right: 1rem;
     text-decoration: none;
+    font-weight: 500;
 }
+
+footer a:hover {
+    color: var(--accent-soft);
+    text-decoration: underline;
+}
+
+#last-updated {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+    text-align: right;
+    font-style: italic;
+}
+
+/* Mobile: stack items */
+@media (max-width: 600px) {
+    footer .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #last-updated {
+        text-align: left;
+    }
+}
+
 
 /* Sections */
 section {
@@ -316,5 +358,24 @@ nav a:hover {
     #themeToggle {
         right: 1rem;
         top: 0.6rem;
+    }
+}
+
+/* Limit size of the about-me picture */
+#about figure {
+    max-width: 260px;      /* controls how small it is */
+    margin: 0;
+}
+
+#about img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Center it on small screens if you like */
+@media (max-width: 600px) {
+    #about figure {
+        margin: 0 auto;
     }
 }
